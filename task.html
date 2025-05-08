@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Cafe</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    .main-container {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .menu-container {
+      height: 8vh;
+      width: 100vw;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 10;
+    }
+
+    .item {
+      padding: 8px 90px;
+      color: white;
+    }
+
+    .item a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      padding: 8px 40px;
+    }
+
+    .item a:hover {
+      background-color: white;
+      color: black;
+    }
+
+    .pic {
+      position: relative;
+      width: 100%;
+    }
+
+    .pic img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+    }
+
+    .the-cafe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 5rem;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .bottom-left, .bottom-right {
+      position: absolute;
+      bottom: 10px;
+      background-color: black;
+      color: white;
+      padding: 5px 10px;
+      font-size: 0.9rem;
+    }
+
+    .bottom-left { left: 10px; }
+    .bottom-right { right: 10px; }
+
+    .section-title {
+      text-align: center;
+      
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
+      padding: 10px;
+      margin-top: 40px;
+       
+    }
+
+    .about-text, .info {
+      max-width: 70%;
+      margin: 30px auto;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .about-image {
+      display: block;
+      margin: 20px auto;
+      max-width: 60%;
+      height: auto;
+    }
+
+    .menu-section {
+      text-align: center;
+      margin: 50px auto;
+    }
+
+    /* Toggle Styles */
+    .toggle-group {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .toggle-group input[type="radio"] {
+      display: none;
+    }
+
+    .toggle-group label {
+      padding: 10px 60px;
+      margin: 0 5px;
+      cursor: pointer;
+      background-color: #ddd;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .toggle-group input[type="radio"]:checked + label {
+      background-color: #333;
+      color: white;
+    }
+
+    .ed-container, .ed-container1 {
+      display: none;
+      max-width: 50%;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: left;
+      background-color: rgb(255, 248, 240);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+
+    #eat:checked ~ .menu-contents .ed-container {
+      display: block;
+    }
+
+    #drink:checked ~ .menu-contents .ed-container1 {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <!-- Top Navigation -->
+    <div class="menu-container">
+      <div class="item"><a href="#">Home</a></div>
+      <div class="item"><a href="#about">About</a></div>
+      <div class="item"><a href="#menu">Menu</a></div>
+      <div class="item"><a href="#where">Where</a></div>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="pic">
+      <img src="https://www.w3schools.com/w3images/coffeehouse.jpg" alt="cafe">
+      <h1 class="the-cafe">the cafe</h1>
+      <h4 class="bottom-left">Open from 6am to 5pm</h4>
+      <h4 class="bottom-right">15 Adr Street, 5015</h4>
+    </div>
+
+    <!-- About Section -->
+    <div id="about">
+      <h2 class="section-title">ABOUT THE CAFE</h2>
+      <p class="about-text">
+        The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+<br><br>
+In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.
+        The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet...
+        <br><br>
+        "Use products from nature for what it's worth..." – <strong>Liam Brown</strong>
+      </p>
+      <img class="about-image" src="https://www.w3schools.com/w3images/coffeeshop.jpg" alt="coffee shop image">
+      <div class="info">
+        <p><strong>Opening hours:</strong> everyday from 6am to 5pm</p>
+        <p><strong>Address:</strong> 15 Adr street, 5015, NY</p>
+      </div>
+    </div>
+
+    <!-- Menu Section -->
+    <div id="menu" class="menu-section">
+      <h2>THE MENU</h2>
+        <br>
+      <!-- Radio Toggle -->
+      <div class="toggle-group">
+        <input type="radio" id="eat" name="menu-toggle" checked>
+        <label for="eat">Eat</label>
+        <input type="radio" id="drink" name="menu-toggle">
+        <label for="drink">Drink</label>
+      </div>
+
+      <!-- Menu Content -->
+      <div class="menu-contents">
+        <div class="ed-container">
+          <strong>Bread Basket</strong><br><br>
+          Assortment of fresh baked fruit breads and muffins – $5.50<br><br>
+          <strong>Honey Almond Granola with Fruits</strong><br><br>
+          Natural cereal with toasted oats, raisins, almonds – $7.00<br><br>
+          <strong>Belgian Waffle</strong><br><br>
+          Vanilla batter with malted flour – $7.50<br><br>
+          <strong>Scrambled Eggs</strong><br><br>
+          With red pepper, garlic, and green onions – $7.50<br><br>
+          <strong>Blueberry Pancakes</strong><br><br>
+          With syrup, butter, and berries – $8.50
+        </div>
+
+        <div class="ed-container1">
+          <strong>Coffee</strong><br><br>
+          Regular coffee – $2.50<br><br>
+          <strong>Chocolato</strong><br><br>
+          Chocolate espresso with milk – $4.50<br><br>
+          <strong>Corretto</strong><br><br>
+          Whiskey and coffee – $5.00<br><br>
+          <strong>Iced Tea</strong><br><br>
+          Cold version of hot tea – $3.00<br><br>
+          <strong>Soda</strong><br><br>
+          Coke, Sprite, Fanta, etc. – $2.50
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
